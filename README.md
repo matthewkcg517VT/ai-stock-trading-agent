@@ -1,8 +1,8 @@
-# 📈 AI Stock Trading Agent
+# AI Stock Trading Agent
 
 An ML-powered paper trading system that predicts stock price direction and backtests trading strategies — built with Python, scikit-learn, and Streamlit.
 
-## 🚀 Live Demo
+## Live Demo
 
 Run the Streamlit dashboard to interactively backtest any strategy:
 
@@ -10,7 +10,7 @@ Run the Streamlit dashboard to interactively backtest any strategy:
 streamlit run app.py
 ```
 
-## 🧠 How It Works
+## How It Works
 
 1. **Data** — Downloads 10 years of historical OHLCV data via `yfinance`
 2. **Features** — Engineers 12 technical indicators (returns, moving averages, RSI, volatility, volume)
@@ -18,7 +18,7 @@ streamlit run app.py
 4. **Strategy** — Converts predictions into long/cash positions with transaction costs
 5. **Backtest** — Evaluates performance using Sharpe ratio, max drawdown, and win rate
 
-## 📊 Results (SPY, 2015–2025)
+## Results (SPY, 2015–2025)
 
 | Metric | Value |
 |--------|-------|
@@ -31,7 +31,7 @@ streamlit run app.py
 
 > The ML strategy achieves a Sharpe ratio of 1.32 (> 1.0 is considered good) with significantly lower drawdowns than buy-and-hold, demonstrating effective risk management.
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 ai-stock-trading-agent/
@@ -48,7 +48,7 @@ ai-stock-trading-agent/
 └── requirements.txt
 ```
 
-## 🔧 Features Engineered
+## Features Engineered
 
 - **Returns**: 1-day, 5-day, 10-day price returns
 - **Moving Averages**: 10/20/50-day MA ratios
@@ -57,7 +57,7 @@ ai-stock-trading-agent/
 - **RSI**: 14-period Relative Strength Index
 - **Range**: Daily high-low range as % of close
 
-## 🤖 Models Compared
+## Models Compared
 
 | Model | Accuracy |
 |-------|----------|
@@ -65,7 +65,7 @@ ai-stock-trading-agent/
 | Gradient Boosting | 54.5% |
 | Random Forest | 51.0% |
 
-## ⚙️ Setup
+## Setup
 
 ```bash
 # Clone the repo
@@ -85,10 +85,10 @@ python -m src.backtest
 streamlit run app.py
 ```
 
-## 📦 Tech Stack
+## Tech Stack
 
 - **Python** — pandas, numpy, scikit-learn, yfinance, matplotlib, streamlit, xgboost
 
 ## ⚠️ Disclaimer
 
-This is a paper trading simulation for educational purposes only. Not financial advice.
+This is a paper trading simulation that I built as a passion project, not for financial advices.
