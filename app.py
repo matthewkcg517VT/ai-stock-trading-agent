@@ -102,5 +102,5 @@ if run_btn:
     st.dataframe(show, use_container_width=True)
 
 else:
-    st.info("👈 Configure settings in the sidebar and click **Run Backtest** to start.")
+    st.info(" Configure settings in the sidebar and click **Run Backtest** to start.")
     st.image("data/backtest_results.png", caption="Last backtest results (SPY, Logistic Regression)")
