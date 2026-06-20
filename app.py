@@ -12,17 +12,17 @@ from src.backtest import run_backtest, compute_metrics
 
 st.set_page_config(page_title="AI Stock Trading Agent", layout="wide", page_icon="📈")
 
-st.title("📈 AI Stock Trading Agent")
+st.title("AI Stock Trading Agent")
 st.markdown("ML-powered paper trading system with backtesting | Built with scikit-learn + Streamlit")
 
 # --- Sidebar ---
-st.sidebar.header("⚙️ Settings")
+st.sidebar.header("Settings")
 ticker = st.sidebar.selectbox("Stock Ticker", ["SPY", "AAPL", "MSFT", "NVDA", "QQQ"], index=0)
 train_ratio = st.sidebar.slider("Train/Test Split", 0.6, 0.9, 0.8, 0.05)
 transaction_cost = st.sidebar.slider("Transaction Cost (%)", 0.0, 0.5, 0.1, 0.05) / 100
 model_choice = st.sidebar.selectbox("Model", ["LogisticRegression", "RandomForest", "GradientBoosting"])
 
-run_btn = st.sidebar.button("🚀 Run Backtest", use_container_width=True)
+run_btn = st.sidebar.button("Run Backtest", use_container_width=True)
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("**How it works:**")
@@ -54,7 +54,7 @@ if run_btn:
         metrics = compute_metrics(df_bt)
 
     # --- Metrics Row ---
-    st.subheader("📊 Backtest Results")
+    st.subheader("Backtest Results")
     c1, c2, c3, c4, c5 = st.columns(5)
     c1.metric("Strategy Return", metrics["Total Return (Strategy)"])
     c2.metric("Buy & Hold Return", metrics["Total Return (Buy&Hold)"])
@@ -63,14 +63,14 @@ if run_btn:
     c5.metric("Win Rate", metrics["Win Rate"])
 
     # --- Model Accuracy Row ---
-    st.subheader("🤖 Model Comparison")
+    st.subheader("Model Comparison")
     acc_data = {name: f"{res['accuracy']:.2%}" for name, res in results.items()}
     acc_df = pd.DataFrame(acc_data.items(), columns=["Model", "Accuracy"])
     acc_df["Selected"] = acc_df["Model"].apply(lambda x: "✅" if x == model_choice else "")
     st.dataframe(acc_df, use_container_width=True, hide_index=True)
 
     # --- Equity Curve ---
-    st.subheader("📈 Equity Curve")
+    st.subheader("Equity Curve")
     fig, axes = plt.subplots(2, 1, figsize=(12, 7))
 
     axes[0].plot(df_bt.index, df_bt["cum_market"], label="Buy & Hold", color="steelblue", linewidth=1.5)
@@ -92,7 +92,7 @@ if run_btn:
     plt.close()
 
     # --- Recent Predictions ---
-    st.subheader("🔍 Recent Predictions")
+    st.subheader("Recent Predictions")
     display_cols = ["Close", "prediction", "proba", "market_return", "strategy_return"]
     show = df_bt[display_cols].tail(20).copy()
     show["prediction"] = show["prediction"].map({1.0: "📈 Up", 0.0: "📉 Down", None: "—"})
